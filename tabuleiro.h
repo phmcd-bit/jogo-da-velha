@@ -1,0 +1,14 @@
+#ifndef TABULEIRO_H
+#define TABULEIRO_H
+
+#define VAZIO 0
+#define JOGADOR_O 1
+#define JOGADOR_X 4
+
+typedef struct {
+    int M[3][3];
+} Tabuleiro;
+
+void inicializaTabuleiro(Tabuleiro *tabuleiro);
+
+#endif
