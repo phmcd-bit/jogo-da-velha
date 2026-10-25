@@ -10,5 +10,8 @@ typedef struct {
 } Tabuleiro;
 
 void inicializaTabuleiro(Tabuleiro *tabuleiro);
+void desenha(Tabuleiro *tabuleiro);
+void marcaJogada(Tabuleiro *tabuleiro, int x, int y, int tipo);
+int temVencedor (Tabuleiro *tabuleiro);
 
 #endif

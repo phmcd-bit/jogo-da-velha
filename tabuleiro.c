@@ -7,4 +7,15 @@ void inicializaTabuleiro(Tabuleiro *tabuleiro) {
         }
     }
 }
- 
+
+void desenha(Tabuleiro *tabuleiro){
+
+}
+
+int marcaJogada(Tabuleiro *tabuleiro, int x, int y, int tipo){
+    
+}
+
+int temVencedor (Tabuleiro *tabuleiro){
+
+}
