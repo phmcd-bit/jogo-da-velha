@@ -83,5 +83,4 @@ int temVencedor(Tabuleiro *tabuleiro) {
        }
 
     return VAZIO;
-
 }
