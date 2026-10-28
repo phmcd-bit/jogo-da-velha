@@ -4,7 +4,14 @@
 #include "tabuleiro.h"
 #include "jogadorTeclado.h"
 
-void configuraJogadores(JogadorTeclado *jogador1, JogadorTeclado *jogador2);
-void inicia(Tabuleiro *tabuleiro, JogadorTeclado *jogador1, JogadorTeclado *jogador2);
+typedef struct {
+    Tabuleiro tabuleiro;
+    JogadorTeclado jogador1;
+    JogadorTeclado jogador2;
+} Partida;
+
+void configuraJogadores(Partida *partida);
+
+void inicia(Partida *partida);
 
 #endif
