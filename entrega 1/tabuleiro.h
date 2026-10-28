@@ -11,7 +11,7 @@ typedef struct {
 
 void inicializaTabuleiro(Tabuleiro *tabuleiro);
 
-void desenhaTabuleiro(Tabuleiro *tabuleiro);
+void desenha(Tabuleiro *tabuleiro);
 
 void marcaJogada(Tabuleiro *tabuleiro, int linha, int coluna, int tipo);
 
