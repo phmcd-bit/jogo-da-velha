@@ -8,7 +8,7 @@ void joga(JogadorTeclado *jogador, Tabuleiro *tabuleiro){
 
     while (validacao == 0){
 
-        printf("Digite a posição da linha e coluna: ");
+        printf("Digite a posicao da linha e coluna: ");
         scanf("%d %d", &linha, &coluna);
 
         if (linha >= 0 && linha < 3 && coluna >= 0 && coluna < 3 && tabuleiro->M[linha][coluna] == VAZIO) {
