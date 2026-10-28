@@ -1,7 +1,7 @@
 #ifndef JOGADORTECLADO_H
 #define JOGADORTECLADO_H
 
-#include "Tabuleiro.h"
+#include "tabuleiro.h"
 
 typedef struct {
     int tipo;

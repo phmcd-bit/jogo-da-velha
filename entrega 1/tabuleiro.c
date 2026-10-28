@@ -9,7 +9,7 @@ void inicializaTabuleiro(Tabuleiro *tabuleiro) {
     }
 }
  
-void desenhaTabuleiro(Tabuleiro *tabuleiro) {
+void desenha(Tabuleiro *tabuleiro) {
 
     printf("\033[2J\033[H"); 
 
@@ -40,7 +40,6 @@ void marcaJogada(Tabuleiro *tabuleiro, int linha, int coluna, int tipo) {
     if (linha >= 0 && linha < 3 && coluna >= 0 && coluna < 3) {
         tabuleiro->M[linha][coluna] = tipo;
     }
-
     else {
         printf("Posicao invalida!\n");
     }
