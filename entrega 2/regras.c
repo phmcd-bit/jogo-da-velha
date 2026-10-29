@@ -16,7 +16,6 @@ int r3(Tabuleiro *tabuleiro, JogadorIA *jogadorIA, int jogadorHumano){
     return 0;
 }
 
-// r4
 int r4(Tabuleiro *tabuleiro, JogadorIA *jogadorIA, int jogadorHumano){
     int cantos[4][2] = {
         {0, 0},
@@ -41,7 +40,6 @@ int r4(Tabuleiro *tabuleiro, JogadorIA *jogadorIA, int jogadorHumano){
     return 0; 
 }
 
-// r5
 int r5(Tabuleiro *tabuleiro, JogadorIA *jogadorIA, int jogadorHumano){
     int cantos[4][2] = {
         {0, 0},
@@ -62,7 +60,6 @@ int r5(Tabuleiro *tabuleiro, JogadorIA *jogadorIA, int jogadorHumano){
     return 0;
 }
 
-//r6
 int r6(Tabuleiro *tabuleiro, JogadorIA *jogadorIA, int jogadorHumano){
     for (int linha = 0; linha < 3; linha++) {
         for (int coluna = 0; coluna < 3; coluna++) {
