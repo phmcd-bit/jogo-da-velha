@@ -81,6 +81,10 @@ int r2(Tabuleiro *tabuleiro, JogadorIA *jogadorIA, int jogadorHumano){
 }
 
 int r3(Tabuleiro *tabuleiro, JogadorIA *jogadorIA, int jogadorHumano){
+    if (tabuleiro->M[1][1] == VAZIO){
+        marcaJogada(tabuleiro, 1, 1, jogadorIA->tipo);
+            return 1;
+    }
 
     return 0;
 }
