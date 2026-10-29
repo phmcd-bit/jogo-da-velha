@@ -1,64 +1,33 @@
 #include <stdio.h>
 #include "jogadorIA.h"
+#include "regras.h"
 
 void jogaIA(JogadorIA *jogadorIA, Tabuleiro *tabuleiro){
 
     int jogadorHumano;
 
-    if (jogadorIA->tipo == 1) {
-        jogadorHumano = 4;
+    if (jogadorIA->tipo == JOGADOR_O) {
+        jogadorHumano = JOGADOR_X;
     } else {
-        jogadorHumano = 1;
+        jogadorHumano = JOGADOR_O;
     }
 
-    //r1
-            
-    //r2
-
-    //r3
-
-    //r4
-    int cantosLinha, cantosColuna, inversoLinha, inversoColuna;
-
-    int cantos[4][2] = {
-        {0, 0},
-        {0, 2},
-        {2, 2},
-        {2, 0}
-    };
-
-    for (int i = 0; i < 4; i++){
-        cantosLinha = cantos[i][0];
-        cantosColuna = cantos[i][1];
-
-        inversoLinha = 2 - cantosLinha;
-        inversoColuna = 2 - cantosColuna;
-
-        if (tabuleiro->M[cantosLinha][cantosColuna] == jogadorHumano && tabuleiro->M[inversoLinha][inversoColuna] == VAZIO) {
-            marcaJogada(tabuleiro, inversoLinha, inversoColuna, jogadorIA->tipo);
-            return; 
-        }
+    if (r1(tabuleiro, jogadorIA, jogadorHumano) == 1){
+        return;
     }
-    
-    //r5
-       for (int i = 0; i < 4; i++) {
-
-        int cantosLinha = cantos[i][0];
-        int cantosColuna = cantos[i][1];
-
-        if (tabuleiro->M[cantosLinha][cantosColuna] == VAZIO) {
-            marcaJogada(tabuleiro, cantosLinha, cantosColuna, jogadorIA->tipo);
-            return;
-        }
+    if (r2(tabuleiro, jogadorIA, jogadorHumano)== 1){
+        return;
     }
-
-    //r6
-    for (int linha = 0; linha < 3; linha++) {
-        for (int coluna = 0; coluna < 3; coluna++) {
-            if (tabuleiro->M[linha][coluna] == VAZIO) {
-                marcaJogada(tabuleiro, linha, coluna, jogadorIA->tipo);
-                return;
-            }
-        }
+    if (r3(tabuleiro, jogadorIA, jogadorHumano)== 1){
+        return;
+    }
+    if (r4(tabuleiro, jogadorIA, jogadorHumano) == 1){
+        return;
+    }
+    if (r5(tabuleiro, jogadorIA, jogadorHumano) == 1){
+        return;
+    }
+    if (r6(tabuleiro, jogadorIA, jogadorHumano) == 1){
+        return;
     }
 }
