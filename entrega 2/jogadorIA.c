@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include "jogadorIA.h"
 
-
 void jogaIA(JogadorIA *jogadorIA, Tabuleiro *tabuleiro){
 
     //r1
-
+            
     //r2
 
     //r3
