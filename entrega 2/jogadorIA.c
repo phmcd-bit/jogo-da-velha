@@ -32,17 +32,8 @@ void jogaIA(JogadorIA *jogadorIA, Tabuleiro *tabuleiro){
         cantosLinha = cantos[i][0];
         cantosColuna = cantos[i][1];
 
-        if (cantosLinha == 0) {
-            inversoLinha = 2;
-        } else {
-            inversoLinha = 0;
-        }
-
-        if (cantosColuna == 0) {
-            inversoColuna = 2;
-        } else {
-            inversoColuna = 0;
-        }
+        inversoLinha = 2 - cantosLinha;
+        inversoColuna = 2 - cantosColuna;
 
         if (tabuleiro->M[cantosLinha][cantosColuna] == jogadorHumano && tabuleiro->M[inversoLinha][inversoColuna] == VAZIO) {
             marcaJogada(tabuleiro, inversoLinha, inversoColuna, jogadorIA->tipo);
@@ -52,7 +43,7 @@ void jogaIA(JogadorIA *jogadorIA, Tabuleiro *tabuleiro){
     
     //r5
        for (int i = 0; i < 4; i++) {
-        
+
         int cantosLinha = cantos[i][0];
         int cantosColuna = cantos[i][1];
 
