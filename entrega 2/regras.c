@@ -10,7 +10,7 @@ int r1(Tabuleiro *tabuleiro, JogadorIA *jogadorIA, int jogadorHumano){
                 return 1;
             } else if (tabuleiro->M[i][0] + tabuleiro->M[i][1] + tabuleiro->M[i][2] == 2 * jogadorIA->tipo && tabuleiro->M[i][j] == VAZIO) {
                 marcaJogada(tabuleiro, i, j, jogadorIA->tipo);
-                return;
+                return 1;
             } else if (i == j && tabuleiro->M[0][0] + tabuleiro->M[1][1] + tabuleiro->M[2][2] == 2 * jogadorIA->tipo && tabuleiro->M[i][j] == VAZIO) {
                 marcaJogada(tabuleiro, i, j, jogadorIA->tipo);
                 return 1;
@@ -28,7 +28,7 @@ int r1(Tabuleiro *tabuleiro, JogadorIA *jogadorIA, int jogadorHumano){
                 return 1;
             } else if (tabuleiro->M[i][0] + tabuleiro->M[i][1] + tabuleiro->M[i][2] == 2 * jogadorHumano && tabuleiro->M[i][j] == VAZIO) {
                 marcaJogada(tabuleiro, i, j, jogadorIA->tipo);
-                return;
+                return 1;
             } else if (i == j && tabuleiro->M[0][0] + tabuleiro->M[1][1] + tabuleiro->M[2][2] == 2 * jogadorHumano && tabuleiro->M[i][j] == VAZIO) {
                 marcaJogada(tabuleiro, i, j, jogadorIA->tipo);
                 return 1;
