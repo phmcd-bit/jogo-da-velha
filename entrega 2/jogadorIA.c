@@ -50,6 +50,7 @@ void jogaIA(JogadorIA *jogadorIA, Tabuleiro *tabuleiro){
             marcaJogada(tabuleiro, cantosLinha, cantosColuna, jogadorIA->tipo);
             return;
         }
+    }
 
     //r6
     for (int linha = 0; linha < 3; linha++) {
