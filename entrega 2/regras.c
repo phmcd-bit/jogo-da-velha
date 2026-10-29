@@ -42,10 +42,41 @@ int r1(Tabuleiro *tabuleiro, JogadorIA *jogadorIA, int jogadorHumano){
     return 0;
 }
 
-
-
 int r2(Tabuleiro *tabuleiro, JogadorIA *jogadorIA, int jogadorHumano){
-    
+
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (tabuleiro->M[i][j] == VAZIO) {
+
+                marcaJogada(tabuleiro, i, j, jogadorIA->tipo);
+
+                int contador_linhas = 0;
+
+                for (int k = 0; k < 3; k++) {
+                    if (tabuleiro->M[k][0] + tabuleiro->M[k][1] + tabuleiro->M[k][2] == 2 * jogadorIA->tipo) {
+                        contador_linhas++;
+                    }
+                    if (tabuleiro->M[0][k] + tabuleiro->M[1][k] + tabuleiro->M[2][k] == 2 * jogadorIA->tipo) {
+                        contador_linhas++;
+                    }
+                }
+                if (tabuleiro->M[0][0] + tabuleiro->M[1][1] + tabuleiro->M[2][2] == 2 * jogadorIA->tipo) {
+                    contador_linhas++;
+                }
+                if (tabuleiro->M[0][2] + tabuleiro->M[1][1] + tabuleiro->M[2][0] == 2 * jogadorIA->tipo) {
+                    contador_linhas++;
+                }
+
+                marcaJogada(tabuleiro, i, j, VAZIO);
+
+                if (contador_linhas >= 2) {
+                    marcaJogada(tabuleiro, i, j, jogadorIA->tipo);
+                    return 1;
+                }
+            }
+        }
+    }
+
     return 0;
 }
 
