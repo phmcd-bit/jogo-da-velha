@@ -11,9 +11,13 @@ void inicializaTabuleiro(Tabuleiro *tabuleiro) {
  
 void desenha(Tabuleiro *tabuleiro) {
 
-    printf("\033[2J\033[H"); 
+    printf("\033[2J\033[H");
+
+    printf("   0   1   2\n");
+
 
     for (int i = 0; i < 3; i++) {
+        printf("%d ", i);
         for (int j = 0; j < 3; j++) {
             if (tabuleiro->M[i][j] == VAZIO) {
                 printf("   ");
@@ -31,7 +35,7 @@ void desenha(Tabuleiro *tabuleiro) {
         printf("\n");
 
         if (i < 2) {
-            printf("---+---+---\n");
+            printf("  ---+---+---\n");
         }
     }
 }
