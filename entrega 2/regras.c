@@ -16,7 +16,7 @@ int r1(Tabuleiro *tabuleiro, JogadorIA *jogadorIA, int jogadorHumano){
                 return 1;
             } else if (i + j == 2 && tabuleiro->M[0][2] + tabuleiro->M[1][1] + tabuleiro->M[2][0] == 2 * jogadorIA->tipo && tabuleiro->M[i][j] == VAZIO) {
                 marcaJogada(tabuleiro, i, j, jogadorIA->tipo);
-                return;
+                return 1;
             }
         }
     }
