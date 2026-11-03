@@ -4,7 +4,7 @@
 #include <string.h>
 
 void jogaRemoto(JogadorRemoto *jogadorRemoto, Tabuleiro *tabuleiro) {
-    int linha = -1, coluna = -1;
+    int linha, coluna;
     char buffer[16];
 
     memset(buffer, 0, sizeof(buffer));
@@ -17,14 +17,19 @@ void jogaRemoto(JogadorRemoto *jogadorRemoto, Tabuleiro *tabuleiro) {
         exit(EXIT_FAILURE);
     }
 
-    if (sscanf(buffer, "%d %d", &linha, &coluna) != 2) {
+    if (bytes < 3 || buffer[1] != ' ' ||
+        buffer[0] < '0' || buffer[0] > '2' ||
+        buffer[2] < '0' || buffer[2] > '2') {
         printf("Jogada recebida em formato invalido.\n");
         closesocket(jogadorRemoto->conexao);
         WSACleanup();
         exit(EXIT_FAILURE);
     }
 
-    if (linha < 0 || linha > 2 || coluna < 0 || coluna > 2 || tabuleiro->M[linha][coluna] != VAZIO) {
+    linha = buffer[0] - '0';
+    coluna = buffer[2] - '0';
+
+    if (tabuleiro->M[linha][coluna] != VAZIO) {
         printf("Jogada recebida invalida.\n");
         closesocket(jogadorRemoto->conexao);
         WSACleanup();
@@ -111,9 +116,12 @@ void aceita(JogadorRemoto *jogadorRemoto, int porta) {
 }
 
 void enviaJogada(JogadorRemoto *jogadorRemoto, int linha, int coluna) {
-    char buffer[16];
+    char buffer[TAM_BUFFER];
 
-    snprintf(buffer, sizeof(buffer), "%d %d", linha, coluna);
+    buffer[0] = '0' + linha;
+    buffer[1] = ' ';
+    buffer[2] = '0' + coluna;
+    buffer[3] = '\0';
 
     if (send(jogadorRemoto->conexao, buffer, strlen(buffer), 0) == SOCKET_ERROR) {
         printf("Erro ao enviar jogada: %d\n", WSAGetLastError());
