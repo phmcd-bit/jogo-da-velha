@@ -116,7 +116,7 @@ void aceita(JogadorRemoto *jogadorRemoto, int porta) {
 }
 
 void enviaJogada(JogadorRemoto *jogadorRemoto, int linha, int coluna) {
-    char buffer[TAM_BUFFER];
+    char buffer[16];
 
     buffer[0] = '0' + linha;
     buffer[1] = ' ';
