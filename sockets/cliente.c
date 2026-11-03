@@ -1,3 +1,5 @@
+#define _WIN32_WINNT 0x0600
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -31,8 +33,9 @@ int main() {
 
     servidor.sin_family = AF_INET;
     servidor.sin_port = htons(PORTA);
-
-    if (inet_pton(AF_INET, "127.0.0.1", &servidor.sin_addr) <= 0) {
+    servidor.sin_addr.s_addr = inet_addr("127.0.0.1");
+    
+    if (servidor.sin_addr.s_addr == INADDR_NONE) {
         printf("Endereco invalido\n");
         closesocket(sock);
         WSACleanup();
